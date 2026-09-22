@@ -12,7 +12,7 @@ jobs:
   publish-image:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código
+      - name: Checkout do codigo
         uses: actions/checkout@v4
 
       - name: Login no GitHub Container Registry
@@ -36,17 +36,17 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
     steps:
-      - name: Deploy em Homologação (simulado)
-        run: echo "Deploy da imagem ghcr.io/${{ github.repository }}:${{ github.sha }} em staging"
-      - name: Smoke test (simulado)
-        run: echo "Executando testes de fumaça em staging..."
+      - name: Deploy em homologacao (simulado)
+        run: echo "Deploy da imagem em staging"
+      - name: Smoke test simulado
+        run: echo "Executando testes de fumaca em staging"
 
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Deploy em Produção (simulado)
-        run: echo "Deploy da imagem ghcr.io/${{ github.repository }}:${{ github.sha }} em produção"
-      - name: Gerar tag de release (baseline)
-        run: echo "Baseline gerada: ${{ github.sha }}"
+      - name: Deploy em producao (simulado)
+        run: echo "Deploy da imagem em producao"
+      - name: Gerar tag de release
+        run: echo "Baseline gerada"
