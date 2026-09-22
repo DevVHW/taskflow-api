@@ -1,0 +1,20 @@
+{
+  "name": "taskflow-api",
+  "version": "1.0.0",
+  "description": "API simples de gerenciamento de tarefas - projeto exemplo para PGCS DevOps",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest --coverage",
+    "lint": "eslint src __tests__"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
