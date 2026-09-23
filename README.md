@@ -48,3 +48,5 @@ docker run -p 3000:3000 taskflow-api
 
 Consulte o `PGCS.pdf` na raiz do repositório para o detalhamento completo do Plano de Gerenciamento de
 Configuração deste projeto.
+
+Teste de fluxo via Pull Request.
