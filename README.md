@@ -46,7 +46,7 @@ docker run -p 3000:3000 taskflow-api
   deploy estão simulados (`echo`), representando onde entraria a integração real com o provedor de
   nuvem/hospedagem escolhido.
 
-Consulte o `PGCS.pdf` na raiz do repositório para o detalhamento completo do Plano de Gerenciamento de
+Consulte o `PGCS_TaskFlow_API.pdf` na raiz do repositório para o detalhamento completo do Plano de Gerenciamento de
 Configuração deste projeto.
 
 Teste de fluxo via Pull Request.
