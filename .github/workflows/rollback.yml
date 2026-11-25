@@ -1,0 +1,24 @@
+name: Rollback
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag/versão da imagem para redeploy (ex.: v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  rollback-production:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Redeploy da imagem anterior (simulado)
+        run: |
+          echo "Revertendo produção para ghcr.io/devvhw/taskflow-api:${{ inputs.tag }}"
+          echo "Executar: marcar a Release ${{ inputs.tag }} como Latest em Releases, se ainda não estiver."
+      - name: Smoke test pós-rollback (simulado)
+        run: echo "Executando testes de fumaça após rollback"
