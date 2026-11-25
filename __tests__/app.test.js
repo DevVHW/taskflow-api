@@ -25,4 +25,15 @@ describe('TaskFlow API', () => {
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
+
+  test('POST /tasks com estimatedMinutes negativo retorna 400', async () => {
+    const res = await request(app).post('/tasks').send({ title: 'Revisar PR', estimatedMinutes: -10 });
+    expect(res.statusCode).toBe(400);
+  });
+
+  test('POST /tasks com estimatedMinutes válido cria a tarefa normalmente', async () => {
+    const res = await request(app).post('/tasks').send({ title: 'Revisar PR', estimatedMinutes: 30 });
+    expect(res.statusCode).toBe(201);
+    expect(res.body.estimatedMinutes).toBe(30);
+  });
 });
