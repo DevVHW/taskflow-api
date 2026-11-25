@@ -15,11 +15,14 @@ app.get('/tasks', (req, res) => {
 });
 
 app.post('/tasks', (req, res) => {
-  const { title } = req.body;
+  const { title, estimatedMinutes } = req.body;
   if (!title || typeof title !== 'string') {
     return res.status(400).json({ error: 'O campo "title" é obrigatório.' });
   }
-  const task = { id: nextId++, title, done: false };
+  if (estimatedMinutes !== undefined && (typeof estimatedMinutes !== 'number' || estimatedMinutes < 0)) {
+    return res.status(400).json({ error: 'O campo "estimatedMinutes" não pode ser negativo.' });
+  }
+  const task = { id: nextId++, title, done: false, estimatedMinutes: estimatedMinutes ?? null };
   tasks.push(task);
   res.status(201).json(task);
 });
